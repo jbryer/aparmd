@@ -1,0 +1,82 @@
+\documentclass[$mode$]{apa6}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+% \usepackage[american]{babel}
+% \usepackage{csquotes}
+% \usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+% \DeclareLanguageMapping{american}{american-apa}
+% \addbibresource{References.bib}
+\usepackage{apacite}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{units}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% \usepackage{Sweave}
+
+
+$if(title)$
+\title{$title$}
+$endif$
+
+$if(shorttitle)$
+\shorttitle{$shorttitle$}
+$endif$
+
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+
+$if(date)$
+\date{$date$}
+$endif$
+
+$if(leftheader)$
+\leftheader{$leftheader$}
+$endif$
+
+$if(abstract)$
+\abstract{$abstract$}
+$endif$
+
+$if(keywords)$
+\keywords{$keywords$}
+$endif$
+
+$if(preamble)$
+$preamble$
+$endif$
+
+\begin{document}
+
+$if(title)$
+\maketitle
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+\section{References}
+
+% \printbibliography
+\bibliographystyle{apacite}
+\bibliography{References}
+
+\end{document}

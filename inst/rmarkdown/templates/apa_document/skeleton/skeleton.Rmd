@@ -1,0 +1,73 @@
+---
+title: Capitalized Title Here
+author: Author One
+affiliation: Affiliation
+leftheader: Last Name
+abstract: >
+  An abstract of less than 150 words.
+keywords: >
+  R, package
+preamble: >
+  % Any extra latex you need in the preamble
+mode: doc
+output: aparmd::apa_document
+---
+
+## Introduction
+
+Introductory section which may include references in parentheses
+\parencite{R}, or cite a reference such as \textcite{R} in the text.
+
+## Section title in sentence case
+
+This section may contain a figure such as Figure \ref{figure:rlogo}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1.5in]{Rlogo}
+  \caption{The logo of R.}
+  \label{figure:rlogo}
+\end{figure}
+
+### A subsection
+
+There will likely be several sections, perhaps including code snippets, such as:
+
+```{r}
+x <- 1:10
+x
+```
+
+#### Linear Regerssion
+
+We can model heart weight (in grams) from body weight (in kilograms) using the `cars` data in the `MASS` package.
+
+$$Hwt = Bwt * b_1 + b_0$$
+
+The results of this regression model are summarized in Table \ref{lmtable}.
+
+```{r, echo=FALSE, results='hide'}
+library(MASS)
+library(xtable)
+data(cats)
+lm.out <- lm(Hwt ~ Bwt, data=cats)
+```
+
+##### Table Results
+
+```{r, echo=FALSE, results='asis'}
+xtable(lm.out, caption='Linear Regression Results', label='lmtable')
+```
+
+##### Plots
+
+It is also useful to include a scatter plot as in Figure \ref{figure:scatter}.
+
+```{r scatterplot, echo=FALSE, results='hide', results='asis', caption='Scatter Plot of Head versus Body Weight'}
+plot(cats$Bwt, cats$Hwt)
+```
+
+## Summary
+
+This file is only a basic APA document. For full details of APA style and information, see the [apa6 documentation](http://get-software.net/macros/latex/contrib/apa6/apa6.pdf).
+
